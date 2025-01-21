@@ -192,7 +192,7 @@ function subArticleEdit()
 ?>
 	<script type="text/javascript" src="./js/article.js"></script>
 
-	<h1>物件<?php print $purpose ?></h1>
+	<h1>物件<?php print $purpose; ?></h1>
 
 	<form name="form" id="form" action="index.php" method="post">
 		<input type="hidden" name="act" />
@@ -308,7 +308,6 @@ function subArticleEditComplete()
 	} else {
 		// 新規登録
 		$sql = fnSqlArticleInsert(fnNextNo('ARTICLE'), $article, $room, $keyPlace, $address, $articleNote, $keyBox, $drawing, $sellCharge, $del);
-
 		$res = mysqli_query($conn, $sql);
 
 		/* $sql = fnSqlFManagerInsert(fnNextNo('FM'),$article,$room,$articleNote,$del);
