@@ -298,8 +298,8 @@ function subTradeEdit()
 
 		</table>
 
-		<a href="javascript:fnTradeEditCheck();"><img src="./images/<?php print $btnImage; ?>" /></a>　
-		<a href="javascript:form.act.value='tradeSearch';form.submit();"><img src="./images/btn_return.png" /></a>　
+		<a href="javascript:fnTradeEditCheck();"><img src="./images/<?php print $btnImage; ?>" /></a>
+		<a href="javascript:form.act.value='tradeSearch';form.submit();"><img src="./images/btn_return.png" /></a>
 		<?php
 		if ($tradeNo) {
 		?>
