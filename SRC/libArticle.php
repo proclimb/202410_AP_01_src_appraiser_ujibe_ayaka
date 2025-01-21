@@ -86,7 +86,7 @@ function subArticle()
 		return;
 	}
 	$sql = fnSqlArticleList(0, $sDel, $sArticle, $sRoom, $sKeyPlace, $sArticleNote, $sKeyBox, $sDrawing, $sSellCharge, $sPage, $orderBy, $orderTo);
-	$res = mysqli_query($sql);
+	$res = mysqli_query($conn, $sql);
 	$row = mysqli_fetch_array($res);
 
 	$count = $row[0];
@@ -122,14 +122,14 @@ function subArticle()
 				$sellCharge  = $row["SELLCHARGE"];
 			?>
 				<tr>
-					<td class="list_td<?php print $i ?>"><a href="javascript:form.act.value='articleEdit';form.articleNo.value='<?php print $rrticleNo ?>';form.submit();"><?php print $article ?></a></td>
-					<td class="list_td<?php print $i ?>"><?php print $room ?></td>
-					<td class="list_td<?php print $i ?>"><?php print $drawing ?></td>
-					<td class="list_td<?php print $i ?>"><?php print $keyPlace ?></td>
-					<td class="list_td<?php print $i ?>"><?php print $articleNote ?></td>
-					<td class="list_td<?php print $i ?>"><?php print $room ?></td>
-					<td class="list_td<?php print $i ?>"><?php print $sellCharge ?></td>
-					<td class="list_td<?php print $i ?>"><a href="javascript:form.act.value='stock';form.sName.value='<?php print $article ?>';form.sRoom.value='<?php print $room ?>';form.submit();">表示</a></td>
+					<td class="list_td<?php print $i; ?>"><a href="javascript:form.act.value='articleEdit';form.articleNo.value='<?php print $articleNo; ?>';form.submit();"><?php print $article ?></a></td>
+					<td class="list_td<?php print $i; ?>"><?php print $room; ?></td>
+					<td class="list_td<?php print $i; ?>"><?php print $keyPlace; ?></td>
+					<td class="list_td<?php print $i; ?>"><?php print $articleNote; ?></td>
+					<td class="list_td<?php print $i; ?>"><?php print $keyBox; ?></td>
+					<td class="list_td<?php print $i; ?>"><?php print $drawing; ?></td>
+					<td class="list_td<?php print $i; ?>"><?php print $sellCharge; ?></td>
+					<td class="list_td<?php print $i; ?>"><a href="javascript:form.act.value='stock';form.sName.value='<?php print $article; ?>';form.sRoom.value='<?php print $room ?>';form.submit();">表示</a></td>
 				</tr>
 			<?php
 				$i = ($i + 1) % 3;
