@@ -196,19 +196,19 @@ function subArticleEdit()
 
 	<form name="form" id="form" action="index.php" method="post">
 		<input type="hidden" name="act" />
-		<input type="hidden" name="sDel" value="<?php print $sDel ?>" />
-		<input type="hidden" name="sArticle" value="<?php print $sArticle ?>" />
-		<input type="hidden" name="sRoom" value="<?php print $sRoom ?>" />
-		<input type="hidden" name="sKeyPlace" value="<?php print $sKeyPlace  ?>" />
-		<input type="hidden" name="sArticleNote" value="<?php print $sArticleNote ?>" />
-		<input type="hidden" name="sKeyBox" value="<?php print $sKeyBox ?>" />
-		<input type="hidden" name="sDueDTFrom" value="<?php print $sDueDTFrom ?>" />
-		<input type="hidden" name="sDueDTTo" value="<?php print $sDueDTTo ?>" />
-		<input type="hidden" name="sSellCharge" value="<?php print $sSellCharge ?>" />
-		<input type="hidden" name="orderBy" value="<?php print $orderBy ?>" />
-		<input type="hidden" name="orderTo" value="<?php print $orderTo ?>" />
-		<input type="hidden" name="sPage" value="<?php print $sPage ?>" />
-		<input type="hidden" name="articleNo" value="<?php print $articleNo ?>" />
+		<input type="hidden" name="sDel" value="<?php print $sDel; ?>" />
+		<input type="hidden" name="sArticle" value="<?php print $sArticle; ?>" />
+		<input type="hidden" name="sRoom" value="<?php print $sRoom; ?>" />
+		<input type="hidden" name="sKeyPlace" value="<?php print $sKeyPlace; ?>" />
+		<input type="hidden" name="sArticleNote" value="<?php print $sArticleNote; ?>" />
+		<input type="hidden" name="sKeyBox" value="<?php print $sKeyBox; ?>" />
+		<input type="hidden" name="sDueDTFrom" value="<?php print $sDueDTFrom; ?>" />
+		<input type="hidden" name="sDueDTTo" value="<?php print $sDueDTTo; ?>" />
+		<input type="hidden" name="sSellCharge" value="<?php print $sSellCharge; ?>" />
+		<input type="hidden" name="orderBy" value="<?php print $orderBy; ?>" />
+		<input type="hidden" name="orderTo" value="<?php print $orderTo; ?>" />
+		<input type="hidden" name="sPage" value="<?php print $sPage; ?>" />
+		<input type="hidden" name="articleNo" value="<?php print $articleNo; ?>" />
 
 		<table border="0" cellpadding="5" cellspacing="1">
 			<tr>
@@ -227,41 +227,41 @@ function subArticleEdit()
 			</tr>
 			<tr>
 				<th>物件名<span class="red">（必須）</span></th>
-				<td><input type="text" name="article" value="<?php print $article ?>" /></td>
+				<td><input type="text" name="article" value="<?php print $article; ?>" /></td>
 			</tr>
 			<tr>
 				<th>部屋番号</th>
-				<td><input type="text" name="room" value="<?php print $room ?>" /></td>
+				<td><input type="text" name="room" value="<?php print $room; ?>" /></td>
 			</tr>
 			<tr>
 				<th>鍵場所</th>
-				<td><textarea name="keyPlace" cols="50" rows="10"><?php print $keyPlace ?></textarea></td>
+				<td><textarea name="keyPlace" cols="50" rows="10"><?php print $keyPlace; ?></textarea></td>
 			</tr>
 			<tr>
 				<th>住所</th>
-				<td><input type="text" name="address" value="<?php print $address ?>" /></td>
+				<td><input type="text" name="address" value="<?php print $address; ?>" /></td>
 			</tr>
 			<tr>
 				<th>備考</th>
-				<td><textarea name="articleNote" cols="50" rows="10"><?php print $articleNote ?></textarea></td>
+				<td><textarea name="articleNote" cols="50" rows="10"><?php print $articleNote; ?></textarea></td>
 			</tr>
 			<tr>
 				<th>キーBox番号</th>
-				<td><input type="text" name="keyBox" value="<?php print $keyBox ?>" /></td>
+				<td><input type="text" name="keyBox" value="<?php print $keyBox; ?>" /></td>
 			</tr>
 			<tr>
 				<th>3Dパース</th>
-				<td><input type="text" name="drawing" value="<?php print $drawing ?>" /></td>
+				<td><input type="text" name="drawing" value="<?php print $drawing; ?>" /></td>
 			</tr>
 			<tr>
 				<th>営業担当者</th>
-				<td><input type="text" name="sellCharge" value="<?php print $sellCharge ?>" /></td>
+				<td><input type="text" name="sellCharge" value="<?php print $sellCharge; ?>" /></td>
 			</tr>
 		</table>
 
-		<a href="javascript:fnArticleEditCheck();"><img src="./images/<?php print $btnImage ?>" /></a>　
+		<a href="javascript:fnArticleEditCheck();"><img src="./images/<?php print $btnImage; ?>" /></a>
 		<a href="javascript:form.act.value='articleSearch';form.submit();"><img src="./images/btn_return.png" /></a>
-		&nbsp;&nbsp;<a href="javascript:fnArticleDeleteCheck(<?php print $articleNo ?>);"><img src="./images/btn_del.png" /></a>
+		&nbsp;&nbsp;<a href="javascript:fnArticleDeleteCheck(<?php print $articleNo; ?>);"><img src="./images/btn_del.png" /></a>
 	</form>
 <?php
 }
