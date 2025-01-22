@@ -66,7 +66,7 @@ function fnSqlFManagerUpdate($fMNo, $name, $room, $note, $del)
 	$sql .= ",NOTE = '$note'";
 	$sql .= ",UPDT = CURRENT_TIMESTAMP";
 	$sql .= ",DEL = '$del'";
-	$sql .= " WHERE FMNO = $fMNo";
+	$sql .= " WHERE FMNO = '$fMNo'";
 
 	return ($sql);
 }

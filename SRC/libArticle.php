@@ -276,42 +276,45 @@ function subArticleEditComplete()
 {
 	$conn = fnDbConnect();
 
-	$sDel         = $_REQUEST['sDel'];
-	$sArticle     = $_REQUEST['sArticle'];
-	$sRoom        = $_REQUEST['sRoom'];
-	$sKeyPlace    = $_REQUEST['sKeyPlace'];
-	$sArticleNote = $_REQUEST['sArticleNote'];
-	$sKeyBox      = $_REQUEST['sKeyBox'];
-	$sDueDTFrom   = $_REQUEST['sDueDTFrom'];
-	$sDueDTTo     = $_REQUEST['sDueDTTo'];
-	$sSellCharge  = $_REQUEST['sSellCharge'];
+	$sDel         = htmlspecialchars($_REQUEST['sDel']);
+	$sArticle     = htmlspecialchars($_REQUEST['sArticle']);
+	$sRoom        = htmlspecialchars($_REQUEST['sRoom']);
+	$sKeyPlace    = htmlspecialchars($_REQUEST['sKeyPlace']);
+	$sArticleNote = htmlspecialchars($_REQUEST['sArticleNote']);
+	$sKeyBox      = htmlspecialchars($_REQUEST['sKeyBox']);
+	$sDueDTFrom   = htmlspecialchars($_REQUEST['sDueDTFrom']);
+	$sDueDTTo     = htmlspecialchars($_REQUEST['sDueDTTo']);
+	$sSellCharge  = htmlspecialchars($_REQUEST['sSellCharge']);
 
 	$orderBy = $_REQUEST['orderBy'];
 	$orderTo = $_REQUEST['orderTo'];
 	$sPage   = $_REQUEST['sPage'];
 
-	$articleNo   = $_REQUEST['articleNo'];
-	$article     = $_REQUEST['article'];
-	$room        = $_REQUEST['room'];
-	$keyPlace    = $_REQUEST['keyPlace'];
-	$address     = $_REQUEST['address'];
-	$articleNote = $_REQUEST['articleNote'];
-	$keyBox      = $_REQUEST['keyBox'];
-	$drawing     = $_REQUEST['drawing'];
-	$sellCharge  = $_REQUEST['sellCharge'];
-	$del         = $_REQUEST['del'];
+	$articleNo   = mysqli_real_escape_string($conn, $_REQUEST['articleNo']);
+	$article     = mysqli_real_escape_string($conn, $_REQUEST['article']);
+	$room        = mysqli_real_escape_string($conn, $_REQUEST['room']);
+	$keyPlace    = mysqli_real_escape_string($conn, $_REQUEST['keyPlace']);
+	$address     = mysqli_real_escape_string($conn, $_REQUEST['address']);
+	$articleNote = mysqli_real_escape_string($conn, $_REQUEST['articleNote']);
+	$keyBox      = mysqli_real_escape_string($conn, $_REQUEST['keyBox']);
+	$drawing     = mysqli_real_escape_string($conn, $_REQUEST['drawing']);
+	$sellCharge  = mysqli_real_escape_string($conn, $_REQUEST['sellCharge']);
+	$del         = mysqli_real_escape_string($conn, $_REQUEST['del']);
 
 	if ($articleNo) {
 		// 編集
 		$sql = fnSqlArticleUpdate($articleNo, $article, $room, $keyPlace, $address, $articleNote, $keyBox, $drawing, $sellCharge, $del);
+		$res = mysqli_query($conn, $sql);
+
+		$sql = fnSqlFManagerUpdate($articleNo, $article, $room, $articleNote, $del);
 		$res = mysqli_query($conn, $sql);
 	} else {
 		// 新規登録
 		$sql = fnSqlArticleInsert(fnNextNo('ARTICLE'), $article, $room, $keyPlace, $address, $articleNote, $keyBox, $drawing, $sellCharge, $del);
 		$res = mysqli_query($conn, $sql);
 
-		/* $sql = fnSqlFManagerInsert(fnNextNo('FM'),$article,$room,$articleNote,$del);
-		   $res = mysqli_query($conn,$sql); */
+		$sql = fnSqlFManagerInsert(fnNextNo('FM'), $article, $room, $articleNote, $del);
+		$res = mysqli_query($conn, $sql);
 	}
 
 	$_REQUEST['act'] = 'articleSearch';

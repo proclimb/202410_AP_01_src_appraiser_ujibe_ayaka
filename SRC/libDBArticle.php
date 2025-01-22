@@ -70,13 +70,13 @@ function fnSqlArticleUpdate($articleNo, $article, $room, $keyPlace, $address, $a
 	$sql .= " SET ARTICLE = '$article'";
 	$sql .= ",ROOM = '$room'";
 	$sql .= ",KEYPLACE = '$keyPlace'";
-	$sql .= ",ADDRESS = '$address";
+	$sql .= ",ADDRESS = '$address'";
 	$sql .= ",ARTICLENOTE = '$articleNote'";
 	$sql .= ",KEYBOX = '$keyBox'";
 	$sql .= ",DRAWING = '$drawing'";
 	$sql .= ",SELLCHARGE = '$sellCharge'";
 	$sql .= ",DEL = '$del'";
-	$sql .= " WHERE ARTICLENO = $articleNo";
+	$sql .= " WHERE ARTICLENO = '$articleNo'";
 
 	return ($sql);
 }
