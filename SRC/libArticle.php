@@ -305,9 +305,6 @@ function subArticleEditComplete()
 		// 編集
 		$sql = fnSqlArticleUpdate($articleNo, $article, $room, $keyPlace, $address, $articleNote, $keyBox, $drawing, $sellCharge, $del);
 		$res = mysqli_query($conn, $sql);
-
-		$sql = fnSqlFManagerUpdate($articleNo, $article, $room, $articleNote, $del);
-		$res = mysqli_query($conn, $sql);
 	} else {
 		// 新規登録
 		$sql = fnSqlArticleInsert(fnNextNo('ARTICLE'), $article, $room, $keyPlace, $address, $articleNote, $keyBox, $drawing, $sellCharge, $del);
