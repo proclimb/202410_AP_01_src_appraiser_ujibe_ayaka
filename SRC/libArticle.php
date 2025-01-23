@@ -156,6 +156,7 @@ function subArticleEdit()
 	$sKeyPlace    = htmlspecialchars($_REQUEST['sKeyPlace']);
 	$sArticleNote = htmlspecialchars($_REQUEST['sArticleNote']);
 	$sKeyBox      = htmlspecialchars($_REQUEST['sKeyBox']);
+	$sDrawing      = htmlspecialchars($_REQUEST['sDrawing']);
 	$sDueDTFrom   = htmlspecialchars($_REQUEST['sDueDTFrom']);
 	$sDueDTTo     = htmlspecialchars($_REQUEST['sDueDTTo']);
 	$sSellCharge  = htmlspecialchars($_REQUEST['sSellCharge']);
@@ -202,6 +203,7 @@ function subArticleEdit()
 		<input type="hidden" name="sKeyPlace" value="<?php print $sKeyPlace; ?>" />
 		<input type="hidden" name="sArticleNote" value="<?php print $sArticleNote; ?>" />
 		<input type="hidden" name="sKeyBox" value="<?php print $sKeyBox; ?>" />
+		<input type="hidden" name="sDrawing" value="<?php print $sDrawing; ?>" />
 		<input type="hidden" name="sDueDTFrom" value="<?php print $sDueDTFrom; ?>" />
 		<input type="hidden" name="sDueDTTo" value="<?php print $sDueDTTo; ?>" />
 		<input type="hidden" name="sSellCharge" value="<?php print $sSellCharge; ?>" />
