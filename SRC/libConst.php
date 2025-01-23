@@ -244,6 +244,7 @@ function subConstEdit()
 
 	subMenu();
 ?>
+	<script type="text/javascript" src="./js/common.js"></script>
 	<script type="text/javascript" src="./js/const.js"></script>
 	<script>
 		var cal1 = new JKL.Calendar("cal1", "form", "purchaseDT");
