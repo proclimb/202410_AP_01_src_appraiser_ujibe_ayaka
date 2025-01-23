@@ -75,95 +75,95 @@ function subConst()
 		<input type="image" src="./images/btn_search.png" onclick="form.act.value='constSearch';form.sPage.value=1;form.submit();" />
 
 		<hr />
-	</form>
 
-	<?php
-	if ($_REQUEST['act'] == 'const') {
-		return;
-	}
+		<?php
+		if ($_REQUEST['act'] == 'const') {
+			return;
+		}
 
-	$sql = fnSqlConstList(0, $sDel, $sArticle, $sConstTrader, $sConstFlg1, $sConstFlg2, $sConstFlg3, $sConstFlg4, $sInteriorCharge, $sPage, $orderBy, $orderTo);
-	$res = mysqli_query($conn, $sql);
-	$row  = mysqli_fetch_array($res);
+		$sql = fnSqlConstList(0, $sDel, $sArticle, $sConstTrader, $sConstFlg1, $sConstFlg2, $sConstFlg3, $sConstFlg4, $sInteriorCharge, $sPage, $orderBy, $orderTo);
+		$res = mysqli_query($conn, $sql);
+		$row  = mysqli_fetch_array($res);
 
-	$count = $row[0];
+		$count = $row[0];
 
-	$sPage = fnPage($count, $sPage, 'constSearch');
-	?>
+		$sPage = fnPage($count, $sPage, 'constSearch');
+		?>
 
-	<div class="list">
-		<table border="0" cellpadding="5" cellspacing="1">
-			<tr>
-				<th class="list_head">物件名<?php fnOrder('ARTICLE', 'constSearch') ?></th>
-				<th class="list_head">部屋番号<?php fnOrder('ROOM', 'constSearch') ?></th>
-				<th class="list_head">住所<?php fnOrder('ADDRESS', 'constSearch') ?></th>
-				<th class="list_head">鍵場所<?php fnOrder('KEYPLACE', 'constSearch') ?></th>
-				<th class="list_head">施工業者<?php fnOrder('CONSTTRADER', 'constSearch') ?></th>
-				<th class="list_head">内装見越額<?php fnOrder('INTERIORPRICE', 'constSearch') ?></th>
-				<th class="list_head">工事金額<?php fnOrder('CONSTPRICE', 'constSearch') ?></th>
-				<th class="list_head">追加工事<?php fnOrder('CONSTADD', 'constSearch') ?></th>
-				<th class="list_head">買取決済<?php fnOrder('PURCHASEDT', 'constSearch') ?></th>
-				<th class="list_head">工期<?php fnOrderConstWork('WORKSTARTDT', 'WORKENDDT', 'constSearch') ?></th>
-				<th class="list_head">荷&amp;鍵引取<?php fnOrder('RECEIVE', 'constSearch') ?></th>
-				<th class="list_head">電気水道開栓/閉栓<?php fnOrder('LINEOPENDT', 'constSearch') ?></th>
-				<th class="list_head">電気水道開栓/閉栓連絡日<?php fnOrder('LINEOPENCONTACTDT', 'constSearch') ?></th>
-				<th class="list_head">照明発注<?php fnOrder('LIGHTORDER', 'constSearch') ?></th>
-				<th class="list_head">現調<?php fnOrder('SITEDT', 'constSearch') ?></th>
-				<th class="list_head">営業担当者<?php fnOrder('SELLCHARGE', 'constSearch') ?></th>
-				<th class="list_head">内装担当者<?php fnOrder('INTERIORCHARGE', 'constSearch') ?></th>
-			</tr>
-			<?php
-			$sql = fnSqlConstList(1, $sDel, $sArticle, $sConstTrader, $sConstFlg1, $sConstFlg2, $sConstFlg3, $sConstFlg4, $sInteriorCharge, $sPage, $orderBy, $orderTo);
-			$res = mysqli_query($conn, $sql);
-			$i = 0;
-			while ($row = mysqli_fetch_array($res)) {
-				$articleNo      = htmlspecialchars($row["ARTICLENO"]);
-				$article        = htmlspecialchars($row["ARTICLE"]);
-				$room           = htmlspecialchars($row["ROOM"]);
-				$address        = htmlspecialchars($row["ADDRESS"]);
-				$constTrader    = htmlspecialchars($row["CONSTTRADER"]);
-				$interiorPrice  = htmlspecialchars(fnNumFormat((int)$row["INTERIORPRICE"]));
-				$constPrice     = htmlspecialchars(fnNumFormat((int)$row["CONSTPRICE"]));
-				$constAdd       = htmlspecialchars($row["CONSTADD"]);
-				$purchaseDT     = htmlspecialchars($row["PURCHASEDT"]);
-				$workStartDT    = htmlspecialchars($row["WORKSTARTDT"]);
-				$workEndDT      = htmlspecialchars($row["WORKENDDT"]);
-				$receive        = htmlspecialchars($row["RECEIVE"]);
-				$lineOpenDT     = htmlspecialchars($row["LINEOPENDT"]);
-				$lineCloseDT    = htmlspecialchars($row["LINECLOSEDT"]);
-				$siteDT         = htmlspecialchars($row["SITEDT"]);
-				$sellCharge     = htmlspecialchars($row["SELLCHARGE"]);
-				$interiorCharge = htmlspecialchars($row["INTERIORCHARGE"]);
-				$keyPlace       = htmlspecialchars($row["KEYPLACE"]);
-				$lineOpenContactDT = htmlspecialchars($row["LINEOPENCONTACTDT"]);
-				$lineCloseContactDT = htmlspecialchars($row["LINECLOSECONTACTDT"]);
-				$lightOrder     = htmlspecialchars($row["LIGHTORDER"]);
-			?>
+		<div class="list">
+			<table border="0" cellpadding="5" cellspacing="1">
 				<tr>
-					<td class="list_td<?php print $i ?>"><a href="javascript:form.act.value='constEdit';form.articleNo.value=<?php print $articleNo ?>;form.submit();"><?php print $article ?></a></td>
-					<td class="list_td<?php print $i ?>"><?php print $room ?></td>
-					<td class="list_td<?php print $i ?>"><?php print $address ?></td>
-					<td class="list_td<?php print $i ?>"><?php print $keyPlace ?></td>
-					<td class="list_td<?php print $i ?>"><?php print $constTrader ?></td>
-					<td class="list_td<?php print $i ?>" align="right"><?php print $interiorPrice ?></td>
-					<td class="list_td<?php print $i ?>" align="right"><?php print $constPrice ?></td>
-					<td class="list_td<?php print $i ?>"><?php print $constAdd ?></td>
-					<td class="list_td<?php print $i ?>"><?php print $purchaseDT ?></td>
-					<td class="list_td<?php print $i ?>"><?php print $workStartDT ?>～<?php print $workEndDT ?></td>
-					<td class="list_td<?php print $i ?>"><?php print $receive ?></td>
-					<td class="list_td<?php print $i ?>"><?php print $lineOpenDT ?>～<?php print $lineCloseDT ?></td>
-					<td class="list_td<?php print $i ?>"><?php print $lineOpenContactDT ?>～<?php print $lineCloseContactDT ?></td>
-					<td class="list_td<?php print $i ?>"><?php if ($lightOrder == 1) print '済' ?></td>
-					<td class="list_td<?php print $i ?>"><?php print $siteDT ?></td>
-					<td class="list_td<?php print $i ?>"><?php print $sellCharge ?></td>
-					<td class="list_td<?php print $i ?>"><?php print $interiorCharge ?></td>
+					<th class="list_head">物件名<?php fnOrder('ARTICLE', 'constSearch') ?></th>
+					<th class="list_head">部屋番号<?php fnOrder('ROOM', 'constSearch') ?></th>
+					<th class="list_head">住所<?php fnOrder('ADDRESS', 'constSearch') ?></th>
+					<th class="list_head">鍵場所<?php fnOrder('KEYPLACE', 'constSearch') ?></th>
+					<th class="list_head">施工業者<?php fnOrder('CONSTTRADER', 'constSearch') ?></th>
+					<th class="list_head">内装見越額<?php fnOrder('INTERIORPRICE', 'constSearch') ?></th>
+					<th class="list_head">工事金額<?php fnOrder('CONSTPRICE', 'constSearch') ?></th>
+					<th class="list_head">追加工事<?php fnOrder('CONSTADD', 'constSearch') ?></th>
+					<th class="list_head">買取決済<?php fnOrder('PURCHASEDT', 'constSearch') ?></th>
+					<th class="list_head">工期<?php fnOrderConstWork('WORKSTARTDT', 'WORKENDDT', 'constSearch') ?></th>
+					<th class="list_head">荷&amp;鍵引取<?php fnOrder('RECEIVE', 'constSearch') ?></th>
+					<th class="list_head">電気水道開栓/閉栓<?php fnOrder('LINEOPENDT', 'constSearch') ?></th>
+					<th class="list_head">電気水道開栓/閉栓連絡日<?php fnOrder('LINEOPENCONTACTDT', 'constSearch') ?></th>
+					<th class="list_head">照明発注<?php fnOrder('LIGHTORDER', 'constSearch') ?></th>
+					<th class="list_head">現調<?php fnOrder('SITEDT', 'constSearch') ?></th>
+					<th class="list_head">営業担当者<?php fnOrder('SELLCHARGE', 'constSearch') ?></th>
+					<th class="list_head">内装担当者<?php fnOrder('INTERIORCHARGE', 'constSearch') ?></th>
 				</tr>
-			<?php
-				$i = ($i + 1) % 2;
-			}
-			?>
-		</table>
-	</div>
+				<?php
+				$sql = fnSqlConstList(1, $sDel, $sArticle, $sConstTrader, $sConstFlg1, $sConstFlg2, $sConstFlg3, $sConstFlg4, $sInteriorCharge, $sPage, $orderBy, $orderTo);
+				$res = mysqli_query($conn, $sql);
+				$i = 0;
+				while ($row = mysqli_fetch_array($res)) {
+					$articleNo      = htmlspecialchars($row["ARTICLENO"]);
+					$article        = htmlspecialchars($row["ARTICLE"]);
+					$room           = htmlspecialchars($row["ROOM"]);
+					$address        = htmlspecialchars($row["ADDRESS"]);
+					$constTrader    = htmlspecialchars($row["CONSTTRADER"]);
+					$interiorPrice  = htmlspecialchars(fnNumFormat((int)$row["INTERIORPRICE"]));
+					$constPrice     = htmlspecialchars(fnNumFormat((int)$row["CONSTPRICE"]));
+					$constAdd       = htmlspecialchars($row["CONSTADD"]);
+					$purchaseDT     = htmlspecialchars($row["PURCHASEDT"]);
+					$workStartDT    = htmlspecialchars($row["WORKSTARTDT"]);
+					$workEndDT      = htmlspecialchars($row["WORKENDDT"]);
+					$receive        = htmlspecialchars($row["RECEIVE"]);
+					$lineOpenDT     = htmlspecialchars($row["LINEOPENDT"]);
+					$lineCloseDT    = htmlspecialchars($row["LINECLOSEDT"]);
+					$siteDT         = htmlspecialchars($row["SITEDT"]);
+					$sellCharge     = htmlspecialchars($row["SELLCHARGE"]);
+					$interiorCharge = htmlspecialchars($row["INTERIORCHARGE"]);
+					$keyPlace       = htmlspecialchars($row["KEYPLACE"]);
+					$lineOpenContactDT = htmlspecialchars($row["LINEOPENCONTACTDT"]);
+					$lineCloseContactDT = htmlspecialchars($row["LINECLOSECONTACTDT"]);
+					$lightOrder     = htmlspecialchars($row["LIGHTORDER"]);
+				?>
+					<tr>
+						<td class="list_td<?php print $i ?>"><a href="javascript:form.act.value='constEdit';form.articleNo.value=<?php print $articleNo ?>;form.submit();"><?php print $article ?></a></td>
+						<td class="list_td<?php print $i ?>"><?php print $room ?></td>
+						<td class="list_td<?php print $i ?>"><?php print $address ?></td>
+						<td class="list_td<?php print $i ?>"><?php print $keyPlace ?></td>
+						<td class="list_td<?php print $i ?>"><?php print $constTrader ?></td>
+						<td class="list_td<?php print $i ?>" align="right"><?php print $interiorPrice ?></td>
+						<td class="list_td<?php print $i ?>" align="right"><?php print $constPrice ?></td>
+						<td class="list_td<?php print $i ?>"><?php print $constAdd ?></td>
+						<td class="list_td<?php print $i ?>"><?php print $purchaseDT ?></td>
+						<td class="list_td<?php print $i ?>"><?php print $workStartDT ?>～<?php print $workEndDT ?></td>
+						<td class="list_td<?php print $i ?>"><?php print $receive ?></td>
+						<td class="list_td<?php print $i ?>"><?php print $lineOpenDT ?>～<?php print $lineCloseDT ?></td>
+						<td class="list_td<?php print $i ?>"><?php print $lineOpenContactDT ?>～<?php print $lineCloseContactDT ?></td>
+						<td class="list_td<?php print $i ?>"><?php if ($lightOrder == 1) print '済' ?></td>
+						<td class="list_td<?php print $i ?>"><?php print $siteDT ?></td>
+						<td class="list_td<?php print $i ?>"><?php print $sellCharge ?></td>
+						<td class="list_td<?php print $i ?>"><?php print $interiorCharge ?></td>
+					</tr>
+				<?php
+					$i = ($i + 1) % 2;
+				}
+				?>
+			</table>
+		</div>
+	</form>
 <?php
 }
 
@@ -179,6 +179,7 @@ function subConstEdit()
 
 	$sDel            = htmlspecialchars($_REQUEST['sDel']);
 	$sArticle        = htmlspecialchars($_REQUEST['sArticle']);
+	$sConstTrader    = htmlspecialchars($_REQUEST['sConstTrader']);
 	$sConstFlg1      = htmlspecialchars($_REQUEST['sConstFlg1']);
 	$sConstFlg2      = htmlspecialchars($_REQUEST['sConstFlg2']);
 	$sConstFlg3      = htmlspecialchars($_REQUEST['sConstFlg3']);
@@ -262,6 +263,7 @@ function subConstEdit()
 		<input type="hidden" name="act" />
 		<input type="hidden" name="sDel" value="<?php print $sDel ?>" />
 		<input type="hidden" name="sArticle" value="<?php print $sArticle ?>" />
+		<input type="hidden" name="sConstTrader" value="<?php print $sConstTrader ?>" />
 		<input type="hidden" name="sConstFlg1" value="<?php print $sConstFlg1 ?>" />
 		<input type="hidden" name="sConstFlg2" value="<?php print $sConstFlg2 ?>" />
 		<input type="hidden" name="sConstFlg3" value="<?php print $sConstFlg3 ?>" />
@@ -457,7 +459,7 @@ function subConstEdit()
 			</tr>
 		</table>
 
-		<a href="javascript:fnConstEditCheck();"><img src="./images/btn_load.png" /></a>　
+		<a href="javascript:fnConstEditCheck();"><img src="./images/btn_load.png" /></a>
 		<a href="javascript:form.act.value='constSearch';form.submit();"><img src="./images/btn_return.png" /></a><br />
 	</form>
 <?php
