@@ -52,7 +52,7 @@ function isLength(length, msg, obj) {
  * @return true:異常、false:正常
  */
 function isNumericLength(length, msg, obj) {
-	if (obj.value.length > 9 || obj.value.match(/[^0-8]+/)) {
+	if (obj.value.length > length || obj.value.match(/[^0-9]+/)) {
 		alert(msg + "は" + length + "桁以内の半角数字で入力してください");
 		return false;
 	}

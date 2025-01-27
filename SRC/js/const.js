@@ -3,7 +3,7 @@
 //
 function fnConstEditCheck() {
 	tmp = form.area.value;
-	if (!tmp.match(/^\d{1,3}(\.\d{0,2})?$/)) {
+	if (!tmp.value === "" && !tmp.match(/^\d{1,3}(\.\d{0,2})?$/)) {
 		alert('面積は3桁以内（小数点以下2桁以内）の半角数字で入力してください');
 		return;
 	}
@@ -16,7 +16,7 @@ function fnConstEditCheck() {
 		return;
 	}
 
-	if (!isNumericLength(9, "内装見越額", form.interiorPrice)) {
+	if (!isNumericLength(8, "内装見越額", form.interiorPrice)) {
 		return;
 	}
 
@@ -24,7 +24,7 @@ function fnConstEditCheck() {
 		return;
 	}
 
-	if (!isNumericLength(9, "工事金額", form.constPrice)) {
+	if (!isNumericLength(8, "工事金額", form.constPrice)) {
 		return;
 	}
 
