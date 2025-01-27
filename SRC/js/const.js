@@ -3,7 +3,7 @@
 //
 function fnConstEditCheck() {
 	tmp = form.area.value;
-	if (!tmp.value === "" && !tmp.match(/^\d{1,3}(\.\d{0,2})?$/)) {
+	if (!tmp.length == 0 && !tmp.match(/^\d{1,3}(\.\d{0,2})?$/)) {
 		alert('面積は3桁以内（小数点以下2桁以内）の半角数字で入力してください');
 		return;
 	}
