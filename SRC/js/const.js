@@ -12,11 +12,11 @@ function fnConstEditCheck() {
 		return;
 	}
 
-	if (!isNumericLength(8, "販売予定額", form.sellPrice)) {
+	if (!isNumericLength(9, "販売予定額", form.sellPrice)) {
 		return;
 	}
 
-	if (!isNumericLength(8, "内装見越額", form.interiorPrice)) {
+	if (!isNumericLength(9, "内装見越額", form.interiorPrice)) {
 		return;
 	}
 
@@ -24,7 +24,7 @@ function fnConstEditCheck() {
 		return;
 	}
 
-	if (!isNumericLength(8, "工事金額", form.constPrice)) {
+	if (!isNumericLength(9, "工事金額", form.constPrice)) {
 		return;
 	}
 
