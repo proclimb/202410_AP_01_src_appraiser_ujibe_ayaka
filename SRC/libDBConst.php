@@ -180,6 +180,7 @@ function fnSqlConstUpdate(
 	$sql .= ",ELECTRICITYCHARGE = '$electricityCharge'";
 	$sql .= ",GASCHARGE = '$gasCharge'";
 	$sql .= ",LIGHTORDER = '$lightOrder'";
+	$sql .= ",UPDT = CURRENT_TIMESTAMP";
 	$sql .= " WHERE ARTICLENO = $articleNo";
 
 	return ($sql);
