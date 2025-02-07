@@ -116,16 +116,16 @@ function subSellView($param)
 			<table border="0" cellpadding="5" cellspacing="1">
 				<tr>
 					<th class="list_head">日付<?php fnOrder('SEARCHDT', 'sellSearch') ?></th>
-					<th class="list_head">物件名<?php fnOrder('ARTICLE', 'sellSearch') ?></th>
+					<th class="list_head">物件名</th>
 					<th class="list_head">住所<?php fnOrder('ADDRESS', 'sellSearch') ?></th>
-					<th class="list_head">駅<?php fnOrder('STATION', 'sellSearch') ?></th>
-					<th class="list_head">徒歩<?php fnOrder('FOOT', 'sellSearch') ?></th>
-					<th class="list_head">築年<?php fnOrder('YEARS', 'sellSearch') ?></th>
-					<th class="list_head">階数<?php fnOrder('FLOOR', 'sellSearch') ?></th>
-					<th class="list_head">専有面積<?php fnOrder('AREA', 'sellSearch') ?></th>
+					<th class="list_head">駅</th>
+					<th class="list_head">徒歩</th>
+					<th class="list_head">築年</th>
+					<th class="list_head">階数</th>
+					<th class="list_head">専有面積</th>
 					<th class="list_head">売主<?php fnOrder('SELLER', 'sellSearch') ?></th>
-					<th class="list_head">価格<?php fnOrder('PRICE', 'sellSearch') ?></th>
-					<th class="list_head">備考<?php fnOrder('NOTE', 'sellSearch') ?></th>
+					<th class="list_head">価格</th>
+					<th class="list_head">備考</th>
 					<th class="list_head">&nbsp;</th>
 				</tr>
 				<?php
