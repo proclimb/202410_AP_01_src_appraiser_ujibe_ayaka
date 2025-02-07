@@ -158,7 +158,8 @@ function subSellView($param)
 						<td class="list_td<?php print $i ?>"><?php print $seller ?></td>
 						<td class="list_td<?php print $i ?>" align="right"><?php print $price ?>万</td>
 						<td class="list_td<?php print $i ?>"><?php print $note ?></td>
-						<td class="list_td<?php print $i ?>"><a href="javascript:form.act.value='sellEdit';form.sellNo.value=<?php print $sellNo ?>;form.submit();"><img src="./images/edit.png" /></a>
+						<td class="list_td<?php print $i ?>">
+							<a href="javascript:form.act.value='sellEdit';form.sellNo.value=<?php print $sellNo ?>;form.submit();"><img src="./images/edit.png" /></a>
 							<a href="javascript:fnSellDeleteCheck(<?php print $sellNo ?>,'<?php print $article ?>');"><img src="./images/delete.png" /></a>
 						</td>
 					</tr>
