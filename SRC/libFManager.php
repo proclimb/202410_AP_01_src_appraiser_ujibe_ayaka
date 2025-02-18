@@ -383,7 +383,6 @@ function subFManagerView()
 						$classNo = htmlspecialchars($row[1]);
 						$seqNo   = htmlspecialchars($row[2]);
 						$name    = htmlspecialchars($row[3]);
-
 						if ($seqNo == 0) {
 					?>
 							<tr>
@@ -554,7 +553,7 @@ function subFManagerViewEditComplete()
 	}
 
 	if ($_FILES['pdfFile']['tmp_name']) {
-		move_uploaded_file($_FILES['pdfFile']['tmp_name'], './pdfs/' . $pdfNo . '.pdf');
+		move_uploaded_file($_FILES['pdfFile']['tmp_name'], './pdfs/' . substr("0000000000" . $pdfNo, -10) . '.pdf');
 	}
 
 	$_REQUEST['act'] = 'fManagerView';
