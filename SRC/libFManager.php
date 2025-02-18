@@ -575,7 +575,7 @@ function subFManagerViewDelete()
 	$sql = fnSqlFManagerViewDelete($pdfNo);
 	$res = mysqli_query($conn, $sql);
 
-	unlink('./pdfs/' . substr('0000000000' . $pdfNo, -10) . '.pdf');
+	//	unlink('./pdfs/' . substr('0000000000' . $pdfNo, -10) . '.pdf');
 	$_REQUEST['act'] = 'fManagerView';
 	subFManagerView();
 }
