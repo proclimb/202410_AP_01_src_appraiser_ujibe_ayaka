@@ -12,6 +12,10 @@ function fnFTitleEditCheck(zero) {
 		alert('表示順は2文字以内の半角数字で入力してください');
 		return;
 	}
+	if (tmp == 0) {
+		alert('0以外の数字を入力してください');
+		return;
+	}
 
 	tmp = form.seqNo.value;
 	if (zero !== 0) {
