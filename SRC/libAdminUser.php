@@ -10,6 +10,8 @@ function subAdminUser()
 ?>
 	<h1>ユーザー情報画面</h1>
 
+	<script type="text/javascript" src="./js/adminUser.js"></script>
+
 	<form name="form" id="form" action="index.php" method="post">
 		<input type="hidden" name="act" value="adminUser" />
 		<input type="hidden" name="userNo" />
