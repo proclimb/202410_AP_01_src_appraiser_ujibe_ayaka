@@ -118,7 +118,7 @@ function subAdminUserEdit()
 			</tr>
 		</table>
 
-		<a href="javascript:fnAdminUserEditCheck();"><img src="./images/<?php print $btnImage; ?>" /></a>　
+		<a href="javascript:fnAdminUserEditCheck();"><img src="./images/<?php print $btnImage; ?>" /></a>
 		<a href="javascript:form.act.value='adminUser';form.submit();"><img src="./images/btn_return.png" /></a>
 	</form>
 <?php
